@@ -4,6 +4,14 @@ provider "aws" {
     region = "us-east-1"
 }
 
+resource "aws_instance" "TerraformEC2Instance" {
+  ami           = "ami-09d95fab7fff3776c"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "TerraformEC2"
+  }
+}
+
 resource "aws_vpc" "terraform_vpc" {
   cidr_block       = "190.160.0.0/16"
   instance_tenancy = "deault"
